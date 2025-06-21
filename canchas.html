@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de Canchas - Proyecto Canchazo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 12px #ccc;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        .mensaje {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reserva de Canchas</h1>
+    <form id="reservaForm">
+        <label for="nombre">Nombre del usuario:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="cancha">Selecciona la cancha:</label>
+        <select id="cancha" required>
+            <option value="">Elige una cancha</option>
+            <option value="1">Cancha 1 - Techada - Pasto sintético</option>
+            <option value="2">Cancha 2 - Exterior - Tierra batida</option>
+            <option value="3">Cancha 3 - Semi techada - Césped natural</option>
+        </select>
+
+        <label for="fecha">Fecha de reserva:</label>
+        <input type="date" id="fecha" required>
+
+        <label for="hora">Hora de reserva:</label>
+        <select id="hora" required>
+            <option value="">Selecciona una hora</option>
+            <option>08:00</option>
+            <option>10:00</option>
+            <option>12:00</option>
+            <option>14:00</option>
+            <option>16:00</option>
+        </select>
+
+        <label for="pago">Método de pago (simulado):</label>
+        <select id="pago" required>
+            <option value="">Selecciona método</option>
+            <option value="webpay">WebPay</option>
+            <option value="efectivo">Pago en recinto</option>
+        </select>
+
+        <button type="submit">Reservar</button>
+    </form>
+
+    <div class="mensaje" id="mensajeExito">
+        ¡Reserva realizada con éxito! ⚽
+    </div>
+
+    <script>
+        document.getElementById('reservaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('mensajeExito').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
