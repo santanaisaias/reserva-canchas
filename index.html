@@ -66,7 +66,7 @@
         </select>
 
         <label for="fecha">Fecha de reserva:</label>
-        <input type="date" id="fecha" required>
+        <input type="date" id="fecha" required min="">
 
         <label for="hora">Hora de reserva:</label>
         <select id="hora" required>
@@ -93,6 +93,12 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var fechaInput = document.getElementById('fecha');
+            var hoy = new Date().toISOString().split('T')[0];
+            fechaInput.setAttribute('min', hoy);
+        });
+
         document.getElementById('reservaForm').addEventListener('submit', function(e) {
             e.preventDefault();
             document.getElementById('mensajeExito').style.display = 'block';
